@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs (AlpineJS)</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <aside x-data="{index: 1, open: false}">
+      <button
+        x-show.transitionorigin.top.right.duration.500ms="!open"
+        @click="open = !open"
+      >
+        +
+      </button>
+      <hgroup x-show.transition.origin.top.right.duration.500ms="open">
+        <span @click.self="open = !open">–</span>
+        <span :class="{'active': index === 1}" @click="index = 1">One</span>
+        <span :class="{'active': index === 2}" @click="index = 2">Two</span>
+        <span :class="{'active': index === 3}" @click="index = 3">Three</span>
+      </hgroup>
+      <main x-show.transition.origin.top.right.duration.500ms="open">
+        <div x-show="index === 1">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quae
+          magni illum eum! Animi, ducimus.
+        </div>
+        <div x-show="index === 2">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+          consequuntur quibusdam voluptatum, fugiat blanditiis itaque maxime
+          corporis officiis repudiandae vitae.
+        </div>
+        <div x-show="index === 3">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit libero
+          consequuntur, voluptatibus sit voluptas sed maxime soluta minus quae
+          ipsum voluptates aut quis alias officia, dolores quasi corrupti atque
+          est veniam excepturi.
+        </div>
+      </main>
+    </aside>
+  </body>
+</html>
